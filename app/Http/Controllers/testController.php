@@ -14,7 +14,7 @@ class testController extends Controller
 {
     public function index()
     {
-        $this-> error_1();
+       // $this-> error_1();
         //$this-> error_2();
         //$this-> error_3();
         //$this-> error_4();
@@ -22,7 +22,7 @@ class testController extends Controller
         //$this-> error_6();
         //$this-> error_7();
         //$this-> error_9();
-        //$this-> error_10();
+        $this-> error_10();
         return "";
     }
 
@@ -69,14 +69,20 @@ class testController extends Controller
         $cards = Card::all();
     }
     function error_10(){
-        Schema::create('users5', function(Blueprint $table)
+       /* Schema::create('testtable', function(Blueprint $table)
         {
-            $table->increments('id');
-            $table->string('email', 340);
-            $table->boolean('confirmed')->default(true);
-            $table->timestamps();
-            $table->unique('email', 'users_email_uniq');
+            $table->string('user_name', 340);
         });
+
+        DB::table('testtable')->updateOrInsert([
+            'user_name' =>"1234",
+            'password' =>"1"
+        ]);*/
+        /*$user_name="Wahid5";
+        $password="12345";
+        $data=array('user_name'=>$user_name,'password'=>'$password');
+        DB::table('testtable')->insert($data);*/
+        $cards = DB::select("SELECT *  testtable");
     }
 
 }
